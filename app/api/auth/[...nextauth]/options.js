@@ -18,6 +18,8 @@ export const options = {
             },
             clientId: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
+            redirectUri: 'https://nextjs-auth-app.onrender.com/api/auth/callback/github',
+
         }), 
         GoogleProvider({
             profile(profile) {
@@ -31,7 +33,9 @@ export const options = {
                 };
             },
             clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            redirectUri: 'https://nextjs-auth-app.onrender.com/api/auth/callback/google',
+
         }),
     ],
     callbacks: {
