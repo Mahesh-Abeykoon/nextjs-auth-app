@@ -1,6 +1,7 @@
 ## Next.js Authentication App
 
 #### This Next.js authentication app provides login functionality using Google and GitHub accounts. It includes server-side authentication middleware, protected routes, and client-side session handling.
+![Site preview](./signin.png)
 
 ### 🔍 Features 
 ```  console
