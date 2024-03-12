@@ -23,3 +23,13 @@
  Node.js installed on your machine
  Google and GitHub developer accounts with OAuth credentials
 ```
+
+### 🔐 Getting Started
+### Follow these steps to set up and run the project locally:
+
+#### 01. Clone the repository:
+```jsx harmony
+git clone https://github.com/Mahesh-Abeykoon/nextjs-auth-app.git
+
+```
+
