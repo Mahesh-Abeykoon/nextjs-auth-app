@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next.js Authentication App
 
-## Getting Started
+#### This Next.js authentication app provides login functionality using Google and GitHub accounts. It includes server-side authentication middleware, protected routes, and client-side session handling.
+![Site preview](./signin.png)
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 🔍 Features 
+```  console
+ Login with Google and GitHub
+ Protected routes based on user roles
+ Server-side and client-side session management
+ Middleware for route authorization
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🚀 Technologies Used 
+```  console
+ Next.js
+ NextAuth.js
+ OAuth 2.0 (Google and GitHub)
+ React
+ Node.js
+```
+### 👨‍💻 PrerequisitesBefore setting up the project, make sure you have the following:
+```  console
+ Node.js installed on your machine
+ Google and GitHub developer accounts with OAuth credentials
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🔐 Getting Started
+### Follow these steps to set up and run the project locally:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### 01. Clone the repository:
+```jsx harmony
+git clone https://github.com/Mahesh-Abeykoon/nextjs-auth-app.git
 
-## Learn More
+```
+#### 02. Navigate to the project directory:
+```jsx harmony
+cd nextjs-auth-app
+```
 
-To learn more about Next.js, take a look at the following resources:
+#### 03. Install dependencies:
+```jsx harmony
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### 04.Set up environment variables:
+#### *Create a .env.local file in the root directory and add the following:
 
-## Deploy on Vercel
+```jsx harmony
+GITHUB_CLIENT_ID=your-github-client-id
+GITHUB_CLIENT_SECRET=your-github-client-secret
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+NEXTAUTH_SECRET=your-nextauth-secret
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```jsx harmony
+Replace your-github-client-id,
+your-github-client-secret, 
+your-google-client-id,
+your-google-client-secret,
+and your-nextauth-secret 
+with your actual credentials.
+```
+
+
+#### 05. Run the developement Server:
+```jsx harmony
+npm run dev
+```
+### Open your browser and navigate to: 
+```jsx harmony
+http://localhost:3000 
+```
+### 🛡️Usage
+#### Server-side Middleware
+> The provided middleware (middleware.js) checks for user roles and redirects unauthorized users. You can customize the middleware to fit your application's requirements.
+
+#### Protected Routes
+> Protected routes are defined using withAuth HOC, ensuring that only authenticated users can access certain pages.
+
+#### Client-side Session Handling
+> Client-side session management is implemented using next-auth/react package. You can access the user's session data in your components as needed.
+
+#### OAuth Providers
+> This app supports authentication with Google and GitHub. Make sure to configure OAuth credentials in your developer accounts and update the environment variables accordingly.
+
+#### Contributing
+> Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
+
+#### License
+> This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+
+
