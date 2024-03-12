@@ -73,3 +73,25 @@ npm run dev
 ```jsx harmony
 http://localhost:3000 
 ```
+### 🛡️Usage
+#### Server-side Middleware
+> The provided middleware (middleware.js) checks for user roles and redirects unauthorized users. You can customize the middleware to fit your application's requirements.
+
+#### Protected Routes
+> Protected routes are defined using withAuth HOC, ensuring that only authenticated users can access certain pages.
+
+#### Client-side Session Handling
+> Client-side session management is implemented using next-auth/react package. You can access the user's session data in your components as needed.
+
+#### OAuth Providers
+> This app supports authentication with Google and GitHub. Make sure to configure OAuth credentials in your developer accounts and update the environment variables accordingly.
+
+#### Contributing
+> Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
+
+#### License
+> This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+
+
