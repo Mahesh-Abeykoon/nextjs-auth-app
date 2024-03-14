@@ -1,4 +1,4 @@
-import mongoose , {Schema} from "mongoose"
+import mongoose , {Schema, trusted} from "mongoose"
 
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise; 
@@ -8,15 +8,15 @@ const userSchema = new Schema({
         type: String
     },
     email: {
-        trype: String
+        type: String
     },
     password: {
-        String
+        type: String
     },
-    timestamps: {
-        required: true,
-    },
-})
+    }, {
+    timestamps: trusted
+
+    });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 export default User;
