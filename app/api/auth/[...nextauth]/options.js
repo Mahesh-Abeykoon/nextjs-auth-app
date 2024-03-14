@@ -1,5 +1,8 @@
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
+import User from "@/app/model/User";
+import bcrypt from "bcrypt";
 
 export const options = {
     providers:[
@@ -37,7 +40,50 @@ export const options = {
             redirectUri: 'https://nextjs-auth-app.onrender.com/api/auth/callback/google',
 
         }),
-    ],
+
+        CredentialsProvider({
+            name: "Credentials",
+            credentials: {
+            email: {
+                label: "Email:",
+                type: "text",
+                placeholder: "Enter your email",
+            },
+            password: {
+                label: "Password:",
+                type: "password",
+                placeholder: "Enter your password",
+            },
+            },
+            async authorize(credentials) {
+            try {
+                const foundUser = await User.findOne({ email: credentials.email })
+                .lean()
+                .exec();
+    
+                if (foundUser) {
+                console.log("User Exists");
+                const match = await bcrypt.compare(
+                    credentials.password,
+                    foundUser.password
+                );
+    
+                if (match) {
+                    console.log("Good Pass");
+                    delete foundUser.password;
+    
+                    foundUser["role"] = "Unverified Email";
+                    return foundUser;
+                }
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            return null;
+            },
+        }),
+        ],
+
     callbacks: {
         async jwt({ token, user }){
             console.log("JWT Callback: ", { token, user });
